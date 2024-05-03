@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+
+import * as themes from "daisyui/src/theming/themes";
+import themeDefaults from "daisyui/src/theming/themeDefaults";
+const { themeOrder } = themeDefaults;
+---
+
+<nav class="navbar sticky top-0 z-30 glass bg-opacity-90 bg-base-100">
+  <div class="navbar-start">
+    <div class="btn btn-ghost">
+        <Icon class="w-8 h-8" name="mdi:hamburger-menu" />
+    </div>
+  </div>
+  <div class="navbar-center">
+    <a class="btn btn-ghost text-xl">JOUR.</a>
+  </div>
+  <div class="none navbar-end">
+    <ul>
+      <li class="btn btn-sm btn-ghost rounded-btn px-2">About</li>
+      <li class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-sm btn-ghost rounded-btn px-2">
+          Theme
+        </div>
+        <div
+          class="dropdown-content z-[1] flex flex-wrap gap-2 sticky w-96 bg-secondary place-content-center shadow p-4"
+        >
+          {
+            themeOrder.map((theme) => (
+              <div data-theme={theme} class="bg-base-100 m-0 p-3">
+                <div class="btn btn-sm btn-primary w-20">
+                  <button
+                    data-toggle-theme={theme}
+                    data-act-class="ACTIVECLASS"
+                  >
+                    {theme}
+                  </button>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
