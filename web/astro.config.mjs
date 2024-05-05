@@ -8,5 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   integrations: [tailwind(), icon()],
   output: "hybrid",
-  adapter: cloudflare()
+  adapter: cloudflare({
+    platformProxy: true,
+  })
 });
