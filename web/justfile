@@ -1,2 +1,6 @@
 dev:
     npx astro dev
+
+convex-dev:
+    npx convex dev
+

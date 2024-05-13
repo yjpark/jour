@@ -58,3 +58,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 - https://docs.astro.build/en/guides/integrations-guide/tailwind/
 - https://www.astroicon.dev/
 - https://icon-sets.iconify.design/
+- https://github.com/panteliselef/astro-with-clerk-auth
