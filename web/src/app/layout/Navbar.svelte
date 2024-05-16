@@ -1,30 +1,32 @@
-<script>
+<script lang="ts">
     import { getPagePath, redirectPage } from '@nanostores/router'
 
     import Icon from "@iconify/svelte";
     import Avatar from "./Avatar.svelte";
-    import { router, getRouteTitle } from "@app/router";
-
+    import { title } from "@app/states/page";
+    import { router, ROUTES } from "@app/router"
     import * as themes from "daisyui/src/theming/themes";
     import themeDefaults from "daisyui/src/theming/themeDefaults";
     const { themeOrder } = themeDefaults;
 </script>
 
-<nav class="navbar sticky top-0 z-30 glass bg-opacity-90 bg-base-100">
+<nav class="navbar sticky top-0 z-30 glass bg-opacity-90 bg-base-100 max-w-full">
     <div class="navbar-start">
         <label for="sidebar-drawer" aria-label="close sidebar">
             <div id="toggle_sidebar" class="btn btn-ghost lg:hidden">
                 <Icon class="w-8 h-8" icon="mdi:hamburger-menu" />
             </div>
         </label>
-        {#if $router.route !== "home"}
-            <a href={getPagePath(router, "home")}>
+        {#if $router?.route != ROUTES.HOME}
+            <a href={getPagePath(router, ROUTES.HOME)}>
                 <Icon class="w-8 h-8" icon="mdi:home" />
             </a>
         {/if}
     </div>
     <div class="navbar-center">
-        <div class="btn btn-ghost text-xl">{getRouteTitle($router?.route)}</div>
+        <div class="btn btn-ghost text-xl truncate">
+            {$title}
+        </div>
     </div>
     <div class="navbar-end">
         <div class="dropdown dropdown-end">

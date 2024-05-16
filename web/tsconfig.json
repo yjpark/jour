@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@convex/*": ["convex/*"],
       "@app/*": ["src/app/*"],
+      "@md/*": ["src/md/*"],
       "@site/*": ["src/site/*"],
       "@assets/*": ["src/assets/*"]
     }

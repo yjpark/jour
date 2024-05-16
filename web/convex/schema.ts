@@ -2,6 +2,27 @@
 
 import { defineSchema, defineTable } from "convex/server";
 import { Validator, v } from "convex/values";
+import { jourUserRole, entryKind, ENTRY_KINDS } from "./validators";
+
+const entriesTable = defineTable({
+    jour: v.id("jours"),
+    user: v.id("users"),
+    kind: entryKind,
+    text: v.string(),
+    data: v.union(
+      v.null(),
+      v.object({
+        kind: ENTRY_KINDS.LIST,
+        items: v.array(
+          v.id("entries"),
+        ),
+      }),
+    ),
+    head: v.optional(v.id("heads")),
+  })
+    .index("by_jour", ["jour"])
+    .index("by_user", ["user"])
+    .index("by_head", ["head"]);
 
 export default defineSchema({
   users: defineTable({
@@ -12,50 +33,18 @@ export default defineSchema({
   })
     .index("by_email", ["email"]),
   jours: defineTable({
-    owner: v.id("users"),
     title: v.string(),
     theme: v.optional(v.string()),
     profile: v.optional(v.id("heads")),
-  })
-    .index("by_owner", ["owner"]),
+  }),
   jour_users: defineTable({
     jour: v.id("jours"),
     user: v.id("users"),
-    role: v.union(
-      v.literal("Admin"),
-      v.literal("Editor"),
-      v.literal("Reader"),
-    ),
+    role: jourUserRole,
   })
     .index("by_jour", ["jour"])
-    .index("by_user", ["user"]),
-  entries: defineTable({
-    jour: v.id("jours"),
-    user: v.id("users"),
-    meta: v.object({
-      kind: v.union(
-        v.literal("Text"),
-        v.literal("List"),
-      ),
-      size: v.int64(),
-      device: v.string(),
-    }),
-    data: v.union(
-      v.object({
-        kind: v.literal("Text"),
-        text: v.string(),
-      }),
-      v.object({
-        kind: v.literal("List"),
-        items: v.array(
-          v.id("entries"),
-        ),
-      }),
-    ),
-    extras: v.optional(v.any()),
-  })
-    .index("by_jour", ["jour"])
-    .index("by_user", ["user"]),
+    .index("by_user", ["user"])
+    .index("by_user_jour", ["user", "jour"]),
   heads: defineTable({
     jour: v.id("jours"),
     current: v.id("entries"),
@@ -71,11 +60,9 @@ export default defineSchema({
       v.literal("UsedBy"),
       v.literal("ShadowedBy"),
     ),
-    head: v.optional(v.id("heads")),
-    version: v.optional(v.int64()),
-    extras: v.optional(v.any()),
   })
     .index("by_entry", ["entry"])
-    .index("by_other", ["other"])
-    .index("by_head", ["head"]),
+    .index("by_other", ["other"]),
+  entries: entriesTable,
+  drafts: entriesTable,
 });

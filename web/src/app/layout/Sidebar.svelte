@@ -1,15 +1,5 @@
-<script>
-    import { getPagePath, redirectPage } from '@nanostores/router'
-
-    import { router } from "@app/router";
-
-    function redirect(name, params, search) {
-        const sidebar_drawer = document.getElementById("sidebar-drawer");
-        if (sidebar_drawer !== null) {
-            sidebar_drawer.checked = false;
-        }
-        redirectPage(router, name, params, search);
-    }
+<script lang="ts">
+    import { redirect, ROUTES } from "@app/router";
 </script>
 
 <!-- Body -->
@@ -21,13 +11,13 @@
     <div class="flex flex-col divide-y divide-base-300">
         <ul class="menu px-0 py-4">
             <li>
-                <div onclick={() => redirect("home")}>
+                <div onclick={() => redirect(ROUTES.HOME)}>
                     <i class="fa-solid fa-house fa-fw"></i>
                     Home
                 </div>
             </li>
             <li>
-                <div onclick={() => redirect("jours")}>
+                <div onclick={() => redirect(ROUTES.JOURS)}>
                     <i class="fa-solid fa-users fa-fw"></i>
                     JOURs
                 </div>

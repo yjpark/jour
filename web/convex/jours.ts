@@ -2,6 +2,8 @@ import { mutation, query } from "./_generated/server";
 import { getAuthUser } from "./auth";
 import { v } from "convex/values";
 import { getUser, getUserByEmail } from "./users";
+import type { JoinJour, UserJour } from "./types";
+import { getLatestEntries } from "./entries";
 
 export const getJour = query({
     args: { id: v.id("jours") },
@@ -25,18 +27,6 @@ export const createJour = mutation({
     },
 });
 
-export const getOwnJours = query({
-    args: {},
-    handler: async (ctx, args) => {
-        const user = await getAuthUser(ctx, args);
-        const jours = await ctx.db
-            .query("jours")
-            .withIndex("by_owner", (q) => q.eq("owner", user._id))
-            .collect();
-        return jours;
-    },
-});
-
 export const getJoinJours = query({
     args: {},
     handler: async (ctx, args) => {
@@ -50,10 +40,32 @@ export const getJoinJours = query({
                 const jour = await ctx.db.get(jour_user.jour);
                 return {
                     jour: jour,
-                    role: jour_user.role,
                     user: jour_user.user,
-                };
+                    role: jour_user.role,
+                } as JoinJour;
             })
         );
+    },
+});
+
+export const getUserJour = query({
+    args: { jour: v.id("jours") },
+    handler: async (ctx, args) => {
+        const user = await getAuthUser(ctx, args);
+        const jour_user = await ctx.db
+            .query("jour_users")
+            .withIndex("by_user_jour", (q) => q.eq("user", user._id).eq("jour", args.jour))
+            .unique();
+        if (jour_user) {
+            const jour = await getJour(ctx, { id: args.jour });
+            const latest = await getLatestEntries(ctx, args);
+            return {
+                jour: jour,
+                user: user,
+                role: jour_user.role,
+                latest: latest,
+            } as UserJour;
+        }
+        return null;
     },
 });

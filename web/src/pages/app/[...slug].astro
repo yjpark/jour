@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import Root from "@app/App.svelte";
+import App from "@app/layout/App.svelte";
 ---
 
 <!doctype html>
@@ -34,6 +34,6 @@ import Root from "@app/App.svelte";
     <title>JOUR. App</title>
 
     <body>
-        <Root client:only="svelte" />
+        <App client:only="svelte" />
     </body>
 </html>

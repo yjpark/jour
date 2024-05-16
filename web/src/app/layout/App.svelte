@@ -1,13 +1,12 @@
-<script>
-    import Navbar from "./Navbar.svelte";
-    import Sidebar from "./Sidebar.svelte";
-    import Home from "./Home.svelte";
-
+<script lang="ts">
     import { onMount } from "svelte";
     import { themeChange } from "theme-change";
-
     import { setupConvex } from "convex-svelte";
-    import * as app_state from "@app/states/app";
+
+    import Navbar from "./Navbar.svelte";
+    import Sidebar from "./Sidebar.svelte";
+    import Page from "./Page.svelte";
+    import * as auth_state from "@app/states/auth";
 
     const convexUrl = import.meta.env.PUBLIC_CONVEX_URL;
 
@@ -21,12 +20,12 @@
     });
 </script>
 
-<div class="drawer lg:drawer-open">
+<div class="drawer lg:drawer-open max-h-screen">
     <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex flex-col items-center">
+    <div class="h-full drawer-content flex flex-col items-center">
         <!-- Page content here -->
         <Navbar />
-        <Home />
+        <Page />
     </div>
     <div class="drawer-side z-50">
         <label
