@@ -45,7 +45,7 @@
             <Post data={jour?.data.jour} />
         {/if}
     {:else if $activeTab == "Latest"}
-        <Latest data={jour?.data.latest} />
+        <Latest data={jour?.data} />
     {:else if $activeTab == "Calendar"}
         Calender: TODO
     {:else if $activeTab == "Profile"}

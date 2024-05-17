@@ -19,8 +19,8 @@
     const { data } : { data: Jour } = $props();
 </script>
 
-<div class="h-2 bg-base-100 glass box-shadow-none" />
-<div class="sticky z-30 top-20 glass box-shadow-none">
+<div class="h-2 bg-base-100" />
+<div class="sticky z-30 top-20 bg-base-100">
     <div class="w-full p-2">
     <textarea
         class="textarea textarea-bordered bg-base-300 w-full min-h-24"
