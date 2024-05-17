@@ -3,7 +3,7 @@
 
     import Icon from "@iconify/svelte";
     import Avatar from "./Avatar.svelte";
-    import { title } from "@app/states/page";
+    import { title, setTabsZ } from "@app/states/page";
     import { router, ROUTES } from "@app/router"
     import * as themes from "daisyui/src/theming/themes";
     import themeDefaults from "daisyui/src/theming/themeDefaults";
@@ -30,11 +30,15 @@
     </div>
     <div class="navbar-end">
         <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn"
+            onclick={() => setTabsZ(5)}
+            onblur={() => setTabsZ(20)}
+        >
+
                 Theme
             </div>
             <div
-                class="dropdown-content z-[1] flex flex-wrap gap-2 sticky w-96 bg-base-300 place-content-center shadow p-4"
+                class="dropdown-content z-50 flex flex-wrap gap-2 w-96 bg-base-300 place-content-center shadow p-4"
             >
                 {#each themeOrder as theme}
                     <div data-theme={theme} class="bg-base-100 m-0 p-3">

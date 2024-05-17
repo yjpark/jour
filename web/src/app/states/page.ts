@@ -8,6 +8,12 @@ router.subscribe(() => {
     title.set(getRouteTitle());
 });
 
+export const tabsZ = atom(20);
+
+export const setTabsZ = function(z: number) {
+    tabsZ.set(z);
+}
+
 export const activeTab = atom("");
 
 export const ensureActiveTab = function(fallback: string) {
