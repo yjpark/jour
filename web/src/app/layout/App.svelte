@@ -21,7 +21,7 @@
     });
 </script>
 
-<div class="drawer lg:drawer-open max-h-screen">
+<div class="fixed drawer lg:drawer-open max-h-screen">
     <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
     <div class="h-full drawer-content flex flex-col items-center">
         <!-- Page content here -->

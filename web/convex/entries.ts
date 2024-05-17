@@ -17,7 +17,7 @@ export const getLatestEntries = query({
             .query("entries")
             .withIndex("by_jour", (q) => q.eq("jour", args.jour))
             .order("desc")
-            .collect()
+            .take(100);
             //.paginate(args.paginationOpts);
         return entries;
     },

@@ -1,7 +1,11 @@
 <script lang="ts">
+    import { type Snippet } from "svelte";
     import { getActiveTab, saveActiveTab } from "@app/states/page";
 
-    export let data: string;
+    const { data, children }: {
+        data: string,
+        children: Snippet
+    } = $props();
 
     function onclick(evt) {
         saveActiveTab(data);
@@ -20,5 +24,5 @@
     role="tabpanel"
     class="tab-content w-[calc(100vw-16px)] lg:w-[calc(100vw-336px)] max-h-full bg-base-200 border-base-300 rounded-box p-6 overflow-auto"
 >
-    <slot />
+    {@render children()}
 </div>

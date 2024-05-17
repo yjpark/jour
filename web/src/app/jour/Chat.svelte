@@ -7,13 +7,15 @@
     dayjs.extend(relativeTime);
     import { fixedHeadings } from "@md/render";
 
-    export let data: Entry;
+    const { data } : { data: Entry } = $props();
     const user = fetchUser(data.user);
     const tooltipClass = isSelf(data.user)
         ? "tooltip tooltip-info tooltip-right"
         : "tooltip tooltip-info tooltip-left";
+    //Need enclosing div to make the layout working on safari
 </script>
 
+<div>
 <div class={isSelf(data.user) ? "chat chat-start" : "chat chat-end"}>
     <div class="chat-image avatar">
         <div class="w-10 rounded-full">
@@ -37,4 +39,5 @@
             </time>
         </div>
     </div>
+</div>
 </div>

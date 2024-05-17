@@ -16,6 +16,8 @@
 
     const convexClient = useConvexClient();
 
+    const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
     onMount(async () => {
         console.log("[Clerk]", "PubKey:", clerkPubKey);
 
@@ -44,6 +46,7 @@
                         return token;
                     });
                     auth_state.token.set(token);
+                    await sleep(50);
                     await syncUser(convexClient, {});
                 }
 

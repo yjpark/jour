@@ -6,7 +6,7 @@
         redirect("jour", { id: data.jour._id });
     }
 
-    export let data: JoinJour;
+    const { data } : { data: JoinJour } = $props();
 </script>
 
 <div class="card grow w-full min-w-64 max-w-xl bg-base-100 shadow-xl">

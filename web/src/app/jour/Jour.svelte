@@ -11,7 +11,7 @@
     import Tab from "@app/components/Tab.svelte";
     import Loading from "@app/components/Loading.svelte";
 
-    export let data;
+    const { data } : { data: JourId } = $props();
     const jour = fetchUserJour(data);
 
     ensureActiveTab("Latest");

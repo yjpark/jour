@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@convex/*": ["convex/*"],
+      "@convex-svelte": ["convex-svelte/index"],
       "@app/*": ["src/app/*"],
       "@md/*": ["src/md/*"],
       "@site/*": ["src/site/*"],

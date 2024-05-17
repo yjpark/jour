@@ -13,9 +13,10 @@
         });
         text = "";
     };
-    let text = "";
 
-    export let data: Jour;
+    let text = $state("");
+
+    const { data } : { data: Jour } = $props();
 </script>
 
 <textarea

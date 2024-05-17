@@ -1,9 +1,10 @@
-import { useQuery } from "convex-svelte";
+import { useQuery, type UseQueryReturn } from "@convex-svelte";
 import { ConvexClient } from "convex/browser";
 import { v } from "convex/values";
 import { type FunctionReference, type FunctionReturnType, type FunctionArgs } from "convex/server";
 import { api } from "@convex/_generated/api.js";
 
+/*
 // Copied from https://github.com/get-convex/convex-svelte/blob/main/src/lib/client.svelte.ts
 export type UseQueryReturn<Query extends FunctionReference<"query">> =
     | { data: undefined; error: undefined; isLoading: true; isStale: false }
@@ -14,6 +15,7 @@ export type UseQueryReturn<Query extends FunctionReference<"query">> =
         isLoading: false;
         isStale: boolean;
     };
+ */
 
 export type GetAuth = typeof api.auth.getAuth;
 export type GetAuthReturn = UseQueryReturn<GetAuth>;

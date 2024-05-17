@@ -1,0 +1,3 @@
+[submodule "forks/convex-svelte"]
+	path = web/convex-svelte
+	url = git@github.com:yjpark/convex-svelte.git
