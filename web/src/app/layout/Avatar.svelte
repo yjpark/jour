@@ -50,8 +50,8 @@
                 const button = <HTMLDivElement> document.getElementById("user-button");
                 if (button) {
                     clerk.mountUserButton(button);
-                    auth_state.authing.set(false);
                 }
+                auth_state.authing.set(false);
             }
         }
     });

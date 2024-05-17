@@ -1,5 +1,5 @@
 dev:
-    npx astro dev
+    npx astro dev --host
 
 convex-dev:
     npx convex dev

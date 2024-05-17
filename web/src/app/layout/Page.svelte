@@ -1,7 +1,7 @@
 <script lang="ts">
     import { atom } from "nanostores";
     import { router, ROUTES } from "@app/router";
-    import { auth, token, ensureAuth } from "@app/states/auth";
+    import { auth, ensureAuth } from "@app/states/auth";
     import Home from "@app/home/Home.svelte";
     import Jours from "@app/jours/Jours.svelte";
     import Jour from "@app/jour/Jour.svelte";
@@ -10,7 +10,7 @@
     ensureAuth();
 </script>
 
-{#if $token && $auth.data}
+{#if $auth.data}
     {#if $router?.route === ROUTES.HOME}
         <Home />
     {:else if $router?.route === ROUTES.JOURS}

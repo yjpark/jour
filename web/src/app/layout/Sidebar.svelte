@@ -23,15 +23,15 @@
                 </div>
             </li>
             <li>
-                <a class="active">
+                <a href="/sign-in">
                     <i class="fa-solid fa-fire fa-fw"></i>
-                    Features
+                    Sign In
                 </a>
             </li>
             <li>
-                <a>
+                <a href="/sign-up">
                     <i class="fa-solid fa-podcast fa-fw"></i>
-                    Podcast
+                    Sign Up
                 </a>
             </li>
             <li>

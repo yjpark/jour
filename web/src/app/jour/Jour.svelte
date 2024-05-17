@@ -5,7 +5,7 @@
         canAdminJour,
     } from "@app/states/jours";
     import type { JourId } from "@convex/types";
-    import { title } from "@app/states/page";
+    import { title, ensureActiveTab } from "@app/states/page";
     import Latest from "./Latest.svelte";
     import Post from "./Post.svelte";
     import Tab from "@app/components/Tab.svelte";
@@ -13,7 +13,10 @@
 
     export let data;
     const jour = fetchUserJour(data);
+
+    ensureActiveTab("Latest");
 </script>
+
 
 {#if jour?.data}
     {title.set(jour?.data?.jour.title)}
@@ -31,7 +34,7 @@
             </Tab>
         {/if}
 
-        <Tab data="Latest" checked=true>
+        <Tab data="Latest">
             <Latest data={jour?.data.latest} />
         </Tab>
 

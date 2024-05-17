@@ -3,10 +3,11 @@
     import { themeChange } from "theme-change";
     import { setupConvex } from "convex-svelte";
 
+    import { authing, token } from "@app/states/auth";
+    import Loading from "@app/components/Loading.svelte";
     import Navbar from "./Navbar.svelte";
     import Sidebar from "./Sidebar.svelte";
     import Page from "./Page.svelte";
-    import * as auth_state from "@app/states/auth";
 
     const convexUrl = import.meta.env.PUBLIC_CONVEX_URL;
 
@@ -25,7 +26,11 @@
     <div class="h-full drawer-content flex flex-col items-center">
         <!-- Page content here -->
         <Navbar />
-        <Page />
+        {#if $authing || !$token}
+            <Loading />
+        {:else}
+            <Page />
+        {/if}
     </div>
     <div class="drawer-side z-50">
         <label
