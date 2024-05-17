@@ -22,7 +22,7 @@
 />
 <div
     role="tabpanel"
-    class="tab-content w-[calc(100vw-16px)] lg:w-[calc(100vw-336px)] max-h-full bg-base-200 border-base-300 rounded-box p-6 overflow-auto"
+    class="tab-content w-[calc(100vw-16px)] lg:w-[calc(100vw-336px)] bg-base-200 border-base-300 rounded-box p-6"
 >
     {@render children()}
 </div>

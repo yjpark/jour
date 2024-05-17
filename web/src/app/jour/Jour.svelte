@@ -27,7 +27,7 @@
 {:else if jour?.error}
     failed to load: {jour?.error.toString()}
 {:else if jour?.data}
-    <div role="tablist" class="tabs tabs-boxed bg-base-300 w-full max-h-[calc(100vh-64px)] p-2 items-start place-content-start">
+    <div role="tablist" class="tabs tabs-boxed bg-base-300 w-full p-2 items-start place-content-end">
         {#if canEditJour(jour?.data.role)}
             <Tab data="Post">
                 <Post data={jour?.data.jour} />

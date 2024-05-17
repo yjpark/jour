@@ -10,7 +10,7 @@
 </script>
 
 <div
-    class="collapse collapse-open border border-base-300 bg-base-200"
+    class="collapse collapse-open border border-base-300 bg-base-200 place-content-begin"
 >
     <div class="collapse-title text-xl font-medium">
         <h2 class="text-xl">Join JOURs</h2>

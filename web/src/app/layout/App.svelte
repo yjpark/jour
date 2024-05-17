@@ -21,9 +21,9 @@
     });
 </script>
 
-<div class="fixed drawer lg:drawer-open max-h-screen">
+<div class="drawer lg:drawer-open max-h-screen">
     <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="h-full drawer-content flex flex-col items-center">
+    <div class="h-full drawer-content flex flex-col place-content-start w-[calc(100vw)] lg:w-[calc(100vw-320px)] lg:ml-80">
         <!-- Page content here -->
         <Navbar />
         {#if $authing || !$token}
@@ -38,7 +38,7 @@
             aria-label="close sidebar"
             class="drawer-overlay"
         ></label>
-        <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul class="fixed top-0 bottom-0 left-0 menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <Sidebar />
         </ul>
     </div>

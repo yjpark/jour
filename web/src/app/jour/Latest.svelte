@@ -5,35 +5,44 @@
 
     const { data } : { data: Entry[] } = $props();
 
-    let count = $derived.by(() => {
-        return data.length;
-    });
+    let chats;
 
-    let lastCount = $state(-1);
+    let latest = $derived.by(() => {
+        return data.find(v => true);
+    });
+    let lastRead = $state(null);
 
     const scrollToBottom = async (node) => {
+        console.log("Latest scrollToBottom", latest, lastRead);
+        window.scroll({
+            top: node.scrollHeight,
+            behavior: "auto"
+        });
+    /*
         node.parentNode.scroll({
             top: node.scrollHeight,
             behavior: "auto"
         });
+     */
     };
-    let chats;
     $effect(async () => {
-        count; lastCount; chats; //watching
+        latest; //watching
+
         await tick();
         scrollToBottom(chats);
-        if (lastCount <= 0) {
-            lastCount = count;
+
+        if (lastRead == null) {
+            lastRead = latest;
         }
     });
 
     function dismiss() {
-        lastCount = count;
+        lastRead = latest;
     }
 </script>
 
 <div class="flex flex-col-reverse" bind:this={chats}>
-    {#if count >= lastCount}
+    {#if lastRead && lastRead._id != latest._id}
         <div class="divider">
             <div class="btn btn-secondary btn-sm" onclick={dismiss}>
                 Dismiss
@@ -41,7 +50,7 @@
         </div>
     {/if}
     {#each data as entry, index}
-        {#if index >= 0 && count - lastCount == index}
+        {#if index > 0 && entry._id == lastRead?._id}
             <div class="divider">
                 <div class="badge badge-primary">New</div>
             </div>
