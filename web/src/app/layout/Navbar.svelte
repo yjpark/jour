@@ -3,14 +3,21 @@
 
     import Icon from "@iconify/svelte";
     import Avatar from "./Avatar.svelte";
-    import { title, setTabsZ } from "@app/states/page";
+    import { title } from "@app/states/page";
     import { router, ROUTES } from "@app/router"
     import * as themes from "daisyui/src/theming/themes";
     import themeDefaults from "daisyui/src/theming/themeDefaults";
     const { themeOrder } = themeDefaults;
+
+    let z = $state(10);
+    function setZ(newZ: number) {
+        z = newZ;
+    }
 </script>
 
-<nav class="navbar sticky top-0 z-10 glass bg-opacity-90 bg-base-100 max-w-full">
+<nav class="navbar sticky top-0 z-10 glass bg-opacity-90 bg-base-100 max-w-full"
+    style={"z-index:" + z}
+>
     <div class="navbar-start">
         <label for="sidebar-drawer" aria-label="close sidebar">
             <div id="toggle_sidebar" class="btn btn-ghost lg:hidden">
@@ -31,8 +38,8 @@
     <div class="navbar-end">
         <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost rounded-btn"
-            onclick={() => setTabsZ(5)}
-            onblur={() => setTabsZ(20)}
+            onclick={() => setZ(100)}
+            onblur={() => setZ(10)}
         >
 
                 Theme
