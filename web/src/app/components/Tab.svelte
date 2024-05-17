@@ -1,6 +1,6 @@
 <script lang="ts">
     import { type Snippet } from "svelte";
-    import { getActiveTab, saveActiveTab } from "@app/states/page";
+    import { activeTab, saveActiveTab } from "@app/states/page";
 
     const { data, children }: {
         data: string,
@@ -17,7 +17,7 @@
     role="tab"
     class="tab whitespace-nowrap"
     aria-label={data}
-    checked={data == getActiveTab()}
+    checked={data == activeTab}
     onclick={onclick}
 />
 <div

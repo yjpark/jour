@@ -23,7 +23,7 @@
 
 <div class="drawer lg:drawer-open max-h-screen">
     <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="h-full drawer-content flex flex-col place-content-start w-[calc(100vw)] lg:w-[calc(100vw-320px)] lg:ml-80">
+    <div class="drawer-content flex flex-col place-content-start w-[calc(100vw)] lg:w-[calc(100vw-320px)] lg:ml-80">
         <!-- Page content here -->
         <Navbar />
         {#if $authing || !$token}

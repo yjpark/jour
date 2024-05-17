@@ -1,4 +1,4 @@
-import { atom, map } from "nanostores";
+import { atom } from "nanostores";
 
 import { router, getRouteTitle } from "@app/router";
 
@@ -8,36 +8,22 @@ router.subscribe(() => {
     title.set(getRouteTitle());
 });
 
-export const activeTab = atom(localStorage.getItem("activeTab"));
-
-activeTab.listen((value) => {
-    if (value) {
-        console.log("AAAAAAAAAAAAAAAAAAAAA", value);
-        localStorage.setItem("activeTab", value);
-    }
-});
-
-export const activeTabs = map<{[path: string]: string}>({})
+export const activeTab = atom("");
 
 export const ensureActiveTab = function(fallback: string) {
     const path = router.get()?.path;
     if (path) {
-        activeTabs.setKey(path, localStorage.getItem("activeTab:" + path) ?? fallback);
+        const tab = localStorage.getItem("activeTab:" + path) ?? fallback;
+        activeTab.set(tab);
+    } else {
+        activeTab.set(fallback);
     }
-}
-
-export const getActiveTab = function() {
-    const path = router.get()?.path;
-    if (path) {
-        return activeTabs.get()[path];
-    }
-    return null;
 }
 
 export const saveActiveTab = function(tab: string) {
+    activeTab.set(tab);
     const path = router.get()?.path;
     if (path) {
-        activeTabs.get()[path] = tab;
         localStorage.setItem("activeTab:" + path, tab);
     }
 }

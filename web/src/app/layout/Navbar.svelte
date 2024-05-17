@@ -10,7 +10,7 @@
     const { themeOrder } = themeDefaults;
 </script>
 
-<nav class="navbar sticky top-0 z-30 glass bg-opacity-90 bg-base-100 max-w-full">
+<nav class="navbar sticky top-0 z-10 glass bg-opacity-90 bg-base-100 max-w-full">
     <div class="navbar-start">
         <label for="sidebar-drawer" aria-label="close sidebar">
             <div id="toggle_sidebar" class="btn btn-ghost lg:hidden">

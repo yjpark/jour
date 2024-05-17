@@ -41,7 +41,7 @@
     }
 </script>
 
-<div class="flex flex-col-reverse" bind:this={chats}>
+<div class="flex flex-col-reverse p-2" bind:this={chats}>
     {#if lastRead && lastRead._id != latest._id}
         <div class="divider">
             <div class="btn btn-secondary btn-sm" onclick={dismiss}>
