@@ -7,7 +7,7 @@ convex-dev:
     bunx --bun convex dev
 
 db-generate-migrations:
-    bunx drizzle-kit generate --config db/drizzle.config.ts
+    bunx drizzle-kit generate
 
 db-migrate:
     bunx tsx db/migrate.ts
