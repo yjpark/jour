@@ -7,8 +7,10 @@ convex-dev:
     bunx --bun convex dev
 
 db-generate-migrations:
-    bunx drizzle-kit generate
+    bunx drizzle-kit generate --config db/drizzle.config.ts
 
+db-migrate:
+    bunx tsx db/migrate.ts
 mycli-local:
     mycli --host localhost --port 3306 --user root jour
 
