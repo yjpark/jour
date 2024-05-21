@@ -51,7 +51,9 @@
                 }
                 const button = <HTMLDivElement> document.getElementById("user-button");
                 if (button) {
-                    clerk.mountUserButton(button);
+                    clerk.mountUserButton(button, {
+                        afterSignOutUrl: "/",
+                    });
                 }
                 auth_state.authing.set(false);
             } else {

@@ -29,8 +29,12 @@
         }
       }
     },
-    "litecli": {
-      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#litecli",
+    "dolt": {
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#dolt",
+      "source": "nixpkg"
+    },
+    "mycli": {
+      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#mycli",
       "source": "nixpkg"
     },
     "nodejs@latest": {
@@ -97,10 +101,6 @@
           "store_path": "/nix/store/nx76dx71yjni4bajdn9pshxqs38lkj29-nodejs-22.0.0"
         }
       }
-    },
-    "sqlite": {
-      "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#sqlite",
-      "source": "nixpkg"
     }
   }
 }
