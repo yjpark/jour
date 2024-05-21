@@ -1,8 +1,17 @@
+export DB_HOST := "localhost"
+export DB_PORT := "3306"
+export DB_USER := "root"
+export DB_PASS := ""
+export DB_NAME := "jour/main"
+
 dev:
     bunx --bun astro dev --host
 
 convex-dev:
     bunx --bun convex dev
+
+db-generate-migrations:
+    bunx drizzle-kit generate
 
 mycli-local:
     mycli --host localhost --port 3306 --user root jour
