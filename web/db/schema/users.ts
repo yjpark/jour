@@ -14,8 +14,8 @@ export const users = mysqlTable(
         email: varchar("email", { length: 128}).notNull(),
         name: varchar("name", { length: 64}).notNull(),
         avatar: varchar("avatar", { length: 256}).notNull(),
-        createdAt: timestamp("created_at"),
-        updatedAt: timestamp("updated_at"),
+        createdAt: timestamp("created_at").defaultNow(),
+        updatedAt: timestamp("updated_at").onUpdateNow(),
     },
     (table) => ({
         emailIdx: uniqueIndex("email_idx").on(table.email),

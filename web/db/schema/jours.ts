@@ -11,8 +11,8 @@ export const jours = mysqlTable(
     {
         id: serial("id").primaryKey(),
         name: varchar("name", { length: 64}).notNull(),
-        createdAt: timestamp("created_at"),
-        updatedAt: timestamp("updated_at"),
+        createdAt: timestamp("created_at").defaultNow(),
+        updatedAt: timestamp("updated_at").onUpdateNow(),
     },
     (table) => ({
         nameIdx: index("name_idx").on(table.name),
