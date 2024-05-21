@@ -2,7 +2,7 @@ import { defineConfig } from "drizzle-kit";
 export default defineConfig({
     schema: "./db/schema/*",
     out: "./db/migrations",
-    dialect: "mysql", // 'postgresql' | 'mysql' | 'sqlite'
+    dialect: "mysql",
     dbCredentials: {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
