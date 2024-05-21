@@ -23,7 +23,6 @@
     "@nanostores/router": "github:nanostores/router",
     "astro": "^4.7.0",
     "astro-icon": "^1.1.0",
-    "auth-astro": "^4.1.1",
     "convex": "^1.11.3",
     "convex-svelte": "^0.0.8",
     "crypto": "^1.0.1",
