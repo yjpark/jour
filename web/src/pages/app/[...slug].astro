@@ -1,9 +1,4 @@
 ---
-export const prerender = false;
-import { getSession } from 'auth-astro/server';
-let session = await getSession(Astro.request)
-if (!session) return Astro.redirect("/profile")
-
 import App from "@app/layout/App.svelte";
 ---
 
