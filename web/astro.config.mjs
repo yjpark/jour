@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import svelte from "@astrojs/svelte";
 import cloudflare from "@astrojs/cloudflare";
+import auth_astro from "auth-astro";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,8 +11,9 @@ export default defineConfig({
         tailwind(),
         icon(),
         svelte(),
+        auth_astro(),
     ],
-    output: "hybrid",
+    output: "server",
     adapter: cloudflare({
         platformProxy: true,
     }),
