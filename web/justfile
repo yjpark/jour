@@ -10,7 +10,7 @@ db-generate-migrations:
     bunx drizzle-kit generate
 
 db-migrate:
-    bunx tsx db/migrate.ts
+    bunx tsx migrate.ts
 mycli-local:
     mycli --host localhost --port 3306 --user root jour
 
