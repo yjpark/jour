@@ -15,7 +15,7 @@ export const users = mysqlTable(
         email: varchar("email", { length: 128}).notNull(),
         name: varchar("name", { length: 64}).notNull(),
         avatar: varchar("avatar", { length: 256}).notNull(),
-        data: json("json"),
+        data: json("data"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },

@@ -16,7 +16,7 @@ export const heads = mysqlTable(
         slug: varchar("slug", { length: 256 }).notNull(),
         jourId: int("jour_id").notNull(),
         entryId: int("entry_id").notNull(),
-        data: json("json"),
+        data: json("data"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },

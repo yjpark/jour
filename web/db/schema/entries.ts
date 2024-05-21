@@ -19,7 +19,7 @@ export const entries = mysqlTable(
         userId: int("user_id").notNull(),
         headId: int("head_id"),
         text: text("text"),
-        data: json("json"),
+        data: json("data"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },

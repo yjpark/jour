@@ -12,7 +12,7 @@ export const jours = mysqlTable(
     {
         id: serial("id").primaryKey(),
         name: varchar("name", { length: 64}).notNull(),
-        data: json("json"),
+        data: json("data"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },

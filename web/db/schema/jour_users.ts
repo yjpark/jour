@@ -14,7 +14,7 @@ export const jourUsers = mysqlTable(
         jourId: int("jour_id").notNull(),
         userId: int("user_id").notNull(),
         role: mysqlEnum("role", ["Owner", "Admin", "Editor", "Reader"]),
-        data: json("json"),
+        data: json("data"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },
