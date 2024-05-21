@@ -27,6 +27,7 @@
                 // Set load options here
             });
             console.log("[Clerk]", "Loaded:", clerk.user);
+
             if (clerk.user != null) {
                 auth_state.clerkUser.set(clerk.user);
                 const token = await clerk.session?.getToken({
@@ -48,12 +49,17 @@
                     await sleep(50);
                     await syncUser(convexClient, {});
                 }
-
                 const button = <HTMLDivElement> document.getElementById("user-button");
                 if (button) {
                     clerk.mountUserButton(button);
                 }
                 auth_state.authing.set(false);
+            } else {
+                const signIn = <HTMLDivElement> document.getElementById("sign-in");
+                console.log("Mounting sign-in", signIn);
+                if (signIn) {
+                    clerk.mountSignIn(signIn);
+                }
             }
         }
     });

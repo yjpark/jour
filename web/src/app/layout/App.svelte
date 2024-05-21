@@ -60,8 +60,15 @@
 <div class="flex px-4 mx-auto w-full">
 	<main class="lg:ml-72 w-full mx-auto justify-center">
         <div class="container mx-auto">
-        {#if $authing || !$token}
-            <Loading />
+        {#if $authing}
+            {#if !$token}
+                <div class="w-full mt-4 flex justify-center">
+                    <div id="sign-in">
+                    </div>
+                </div>
+            {:else}
+                <Loading />
+            {/if}
         {:else}
             <Page />
         {/if}

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { atom } from "nanostores";
     import { router, ROUTES } from "@app/router";
-    import { auth, ensureAuth } from "@app/states/auth";
+    import { auth, ensureAuth, authing } from "@app/states/auth";
     import Home from "@app/home/Home.svelte";
     import Jours from "@app/jours/Jours.svelte";
     import Jour from "@app/jour/Jour.svelte";
