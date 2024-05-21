@@ -16,7 +16,7 @@ export const entries = mysqlTable(
         headId: int("head_id"),
         text: text("text"),
         createdAt: timestamp("created_at").defaultNow(),
-        updatedAt: timestamp("updated_at").onUpdateNow(),
+        updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },
     (table) => ({
         jourIdx: index("jour_idx").on(table.jourId),

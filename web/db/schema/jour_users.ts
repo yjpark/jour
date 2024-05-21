@@ -16,7 +16,7 @@ export const jourUsers = mysqlTable(
         userId: int("user_id").notNull(),
         role: mysqlEnum("role", ["owner", "admin", "editor", "reader"]),
         createdAt: timestamp("created_at").defaultNow(),
-        updatedAt: timestamp("updated_at").onUpdateNow(),
+        updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },
     (table) => ({
         pk: primaryKey({ columns: [table.jourId, table.userId] }),

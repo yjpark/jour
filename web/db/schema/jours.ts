@@ -12,7 +12,7 @@ export const jours = mysqlTable(
         id: serial("id").primaryKey(),
         name: varchar("name", { length: 64}).notNull(),
         createdAt: timestamp("created_at").defaultNow(),
-        updatedAt: timestamp("updated_at").onUpdateNow(),
+        updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },
     (table) => ({
         nameIdx: index("name_idx").on(table.name),
