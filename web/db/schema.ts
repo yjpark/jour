@@ -9,6 +9,7 @@ import {
     mysqlEnum,
     index,
     uniqueIndex,
+    primaryKey,
 } from "drizzle-orm/mysql-core";
 
 export const users = mysqlTable(
