@@ -3,6 +3,7 @@ import {
     varchar,
     timestamp,
     serial,
+    json,
     index,
 } from "drizzle-orm/mysql-core";
 
@@ -11,6 +12,7 @@ export const jours = mysqlTable(
     {
         id: serial("id").primaryKey(),
         name: varchar("name", { length: 64}).notNull(),
+        data: json("json"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },

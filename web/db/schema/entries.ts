@@ -2,10 +2,14 @@ import {
     mysqlTable,
     int,
     text,
+    json,
     timestamp,
     serial,
     index,
 } from "drizzle-orm/mysql-core";
+import {
+    sql
+} from "drizzle-orm";
 
 export const entries = mysqlTable(
     "entries",
@@ -15,6 +19,7 @@ export const entries = mysqlTable(
         userId: int("user_id").notNull(),
         headId: int("head_id"),
         text: text("text"),
+        data: json("json"),
         createdAt: timestamp("created_at").defaultNow(),
         updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
     },
