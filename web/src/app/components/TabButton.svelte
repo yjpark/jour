@@ -1,18 +1,20 @@
 <script lang="ts">
+    import { Button } from "flowbite-svelte";
     import { activeTab, saveActiveTab } from "@app/states/page";
 
     const { data }: {
         data: string,
     } = $props();
 
-    function onclick(evt) {
+    function onclick() {
         saveActiveTab(data);
     }
 </script>
-<input class="join-item btn btn-sm whitespace-nowrap"
-    type="radio"
-    name="jour_tabs"
-    aria-label={data}
-    checked={data == activeTab}
+<Button
+    color="purple"
+    outline
+    checked={data == $activeTab}
     onclick={onclick}
-/>
+>
+{data}
+</Button>

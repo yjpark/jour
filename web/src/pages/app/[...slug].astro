@@ -6,26 +6,6 @@ import App from "@app/layout/App.svelte";
 
 <!doctype html>
 <html lang="en">
-    <script is:inline>
-        // ☝️ This script prevent the FART effect.
-        if (localStorage.getItem("theme") === null) {
-            document.documentElement.setAttribute("data-theme", "light");
-        } else
-            document.documentElement.setAttribute(
-                "data-theme",
-                localStorage.getItem("theme")
-            );
-        // "theme" LocalStorage value is set by the package to remember user preference.
-        // The value is checked and applyed before rendering anything.
-    </script>
-    <script>
-        import { themeChange } from "theme-change";
-        themeChange();
-        //https://github.com/saadeghi/theme-change/issues/45
-        document.addEventListener("astro:after-swap", themeChange);
-        // 👆 you could import the CDN directly instead of these two lines
-    </script>
-
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
@@ -33,7 +13,7 @@ import App from "@app/layout/App.svelte";
     <meta name="generator" content={Astro.generator} />
     <title>JOUR. App</title>
 
-    <body>
+    <body class="bg-white dark:bg-gray-900">
         <App client:only="svelte" />
     </body>
 </html>

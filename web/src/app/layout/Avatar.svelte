@@ -1,8 +1,7 @@
 <script lang="ts">
-    import Icon from "@iconify/svelte";
+    import { Spinner } from "flowbite-svelte";
     import { onMount } from "svelte";
-    import { atom } from "nanostores";
-    import { useConvexClient } from "convex-svelte";
+    import { useConvexClient } from "@convex-svelte";
 
     import * as auth_state from "@app/states/auth";
     import { authing } from "@app/states/auth";
@@ -62,6 +61,6 @@
 
 <div id="user-button" class="w-12">
     {#if $authing}
-        <span class="loading loading-ring loading-md"></span>
+        <Spinner color="gray" />
     {/if}
 </div>

@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { Button, Card } from "flowbite-svelte";
     import { type JoinJour } from "@convex/types";
     import { redirect } from "@app/router";
 
@@ -9,22 +10,14 @@
     const { data } : { data: JoinJour } = $props();
 </script>
 
-<div class="card grow w-full min-w-64 max-w-xl bg-base-100 shadow-xl">
-    <div class="card-body justify-between">
-        <div class="card-title flow justify-center">
-            <div class="tooltip w-full" data-tip={data.jour._id}>
-                <div
-                    class="btn btn-ghost btn-block border border-primary"
-                    onclick={redirect_to_jour}
-                >
-                    {data.jour.title}
-                </div>
-            </div>
-        </div>
-        <div class="mt-4 card-actions justify-end">
-            <button class="btn btn-secondary btn-sm">
-                {data.role}
-            </button>
-        </div>
-    </div>
-</div>
+<Card>
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        {data.jour.title}
+    </h5>
+    <Button
+        class="w-fit self-end"
+        on:click={redirect_to_jour}
+    >
+        {data.role}
+    </Button>
+</Card>

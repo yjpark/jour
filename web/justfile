@@ -1,6 +1,13 @@
 dev:
-    npx astro dev --host
+    bunx --bun astro dev --host
 
 convex-dev:
+    bunx --bun convex dev
+
+npx-dev:
+    npx astro dev --host
+
+npx-convex-dev:
     npx convex dev
+
 

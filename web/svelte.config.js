@@ -1,7 +1,9 @@
 import { vitePreprocess } from '@astrojs/svelte';
 
 export default {
-	preprocess: vitePreprocess(),
+	preprocess: [
+		vitePreprocess(),
+	]
 	/*
 	compilerOptions: {
 		runes: true

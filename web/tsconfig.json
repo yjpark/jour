@@ -3,12 +3,32 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@convex/*": ["convex/*"],
-      "@convex-svelte": ["convex-svelte/index"],
-      "@app/*": ["src/app/*"],
-      "@md/*": ["src/md/*"],
-      "@site/*": ["src/site/*"],
-      "@assets/*": ["src/assets/*"]
-    }
+      "@convex/*": [
+        "convex/*"
+      ],
+      "@convex-svelte": [
+        "convex-svelte/index"
+      ],
+      "@islands/*": [
+        "src/islands/*"
+      ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@md/*": [
+        "src/md/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

@@ -1,6 +1,34 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "bun@latest": {
+      "last_modified": "2024-05-15T12:04:30Z",
+      "resolved": "github:NixOS/nixpkgs/b3fcfcfabd01b947a1e4f36622bbffa3985bdac6#bun",
+      "source": "devbox-search",
+      "version": "1.1.8",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x8d9gwx47z6sihl3wmvkbxzhly8gy712-bun-1.1.8",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/x8d9gwx47z6sihl3wmvkbxzhly8gy712-bun-1.1.8"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ckwisxpv8d8mxpnyga9653wssjk5j8ss-bun-1.1.8",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ckwisxpv8d8mxpnyga9653wssjk5j8ss-bun-1.1.8"
+        }
+      }
+    },
     "litecli": {
       "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#litecli",
       "source": "nixpkg"

@@ -3,6 +3,7 @@
   "packages": [
     "sqlite",
     "litecli",
+    "bun@latest",
     "nodejs@latest"
   ],
   "env": {

@@ -1,13 +1,32 @@
 <script lang="ts">
+    import {
+        Sidebar,
+        SidebarGroup,
+        SidebarItem,
+        SidebarWrapper,
+        SidebarDropdownWrapper,
+    } from "flowbite-svelte";
+
     import { redirect, ROUTES } from "@app/router";
+    import PageSide from "@app/components/PageSide.svelte";
 </script>
 
-<!-- Body -->
-<div class="flex flex-col border-y border-base-300 px-6 pt-4 grow">
-    <!-- Search input -->
-    <input class="input input-bordered" placeholder="Search..." />
+<Sidebar asideClass="w-54">
+    <SidebarWrapper
+        divClass="overflow-y-auto py-4 px-3 rounded dark:bg-gray-800"
+    >
+        <SidebarGroup>
+            <SidebarItem
+                label="Home"
+                href="/"
+            />
+        </SidebarGroup>
+    </SidebarWrapper>
+</Sidebar>
 
-    <!-- Links -->
+<!-- Body
+<div class="flex flex-col border-y border-base-300 px-6 pt-4 grow">
+    <input class="input input-bordered" placeholder="Search..." />
     <div class="flex flex-col divide-y divide-base-300">
         <ul class="menu px-0 py-4">
             <li>
@@ -34,65 +53,10 @@
                     Sign Up
                 </a>
             </li>
-            <li>
-                <a>
-                    <i class="fa-solid fa-newspaper fa-fw"></i>
-                    News
-                </a>
-            </li>
         </ul>
-
-        <ul class="menu px-0 py-4">
-            <li>
-                <a>
-                    <i class="fa-brands fa-github fa-fw"></i>
-                    GitHub
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-brands fa-facebook fa-fw"></i>
-                    Facebook
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-brands fa-youtube fa-fw"></i>
-                    Youtube
-                </a>
-            </li>
-        </ul>
-
-        <ul class="menu px-0 py-4">
-            <li>
-                <a>
-                    <i class="fa-solid fa-truck fa-fw"></i>
-                    Deliver
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-solid fa-box fa-fw"></i>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-solid fa-store fa-fw"></i>
-                    Store
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="fa-solid fa-lemon fa-fw"></i>
-                    Fruits
-                </a>
-            </li>
-        </ul>
+        <PageSide />
     </div>
 </div>
-
-<!-- Footer -->
 <div class="flex justify-between items-center p-2">
     <a class="btn">
         <img alt="Profile" src="/avatar.png" class="w-8 rounded-full" />
@@ -107,3 +71,4 @@
         <i class="fa-solid fa-door-open"></i>
     </a>
 </div>
+-->

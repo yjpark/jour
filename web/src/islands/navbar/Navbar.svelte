@@ -5,19 +5,15 @@
         Navbar,
         NavLi,
         NavUl,
-        //NavHamburger,
+        Button,
+        NavHamburger,
     } from "flowbite-svelte";
-    import NavHamburger from "@app/forks/NavHamburger.svelte";
+    import { onMount, type Snippet } from "svelte";
 
-    import { getPagePath, redirectPage } from "@nanostores/router";
-
-    import Avatar from "./Avatar.svelte";
-    import { title } from "@app/states/page";
-    import { router, ROUTES } from "@app/router";
-    import { sidebarHidden } from "@app/states/page";
+    import { title, sidebarHidden } from "../states/page";
 
     const spanClass =
-        "pl-2 self-center text-md text-gray-900 whitespace-nowrap dark:text-white";
+        "pl-2 self-ce./views/pageext-md text-gray-900 whitespace-nowrap dark:text-white";
     const divClass = "w-full ml-auto lg:block lg:w-auto order-1 lg:order-none";
     const ulClass =
         "flex flex-col py-3 my-4 lg:flex-row lg:my-0 text-sm font-medium gap-4 dark:lg:bg-transparent lg:bg-white lg:border-0";
@@ -27,26 +23,50 @@
     const showSidebar = () => {
         sidebarHidden.set(false);
     };
+
+    let { userId, user, children }: {
+        userId: string | null,
+        user: JSON,
+        children: Snippet,
+    } = $props();
+
+    let count = $state(0);
+    function onclick(evt: MouseEvent) {
+        evt.preventDefault();
+        count = count + 1;
+        title.set("Updated " + count);
+    }
+    let mounted = $state(false);
+    onMount(() => {
+        mounted = true;
+    });
 </script>
 
-<Navbar>
-    <NavHamburger
-        onclick={showSidebar}
-        btnClass="focus:outline-none whitespace-normal rounded-lg focus:ring-2 p-1.5 focus:ring-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 m-0 mr-3 lg:hidden"
-    />
-    <NavBrand href="/app" class="lg:ml-64">
+<Navbar class="sticky top-0">
+    <NavBrand href="/" class="lg:ml-64">
         <span
             class="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-4"
         >
             {$title}
         </span>
     </NavBrand>
-    <div class="flex items-center ml-auto gap-1">
+  <div class="flex md:order-2">
+        {#if mounted}
         <DarkMode
             class="mx-2 inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <Avatar />
-    </div>
+        {/if}
+
+    <Button href="/app" size="sm">App</Button>
+    <NavHamburger />
+  </div>
+  <NavUl class="order-1">
+    <NavLi href="/" active={true}>Home</NavLi>
+    <NavLi href="/about">About</NavLi>
+    <NavLi href="/docs/components/navbar">Navbar</NavLi>
+    <NavLi href="/pricing">Pricing</NavLi>
+    <NavLi href="/contact">Contact</NavLi>
+  </NavUl>
 </Navbar>
 
 <!--

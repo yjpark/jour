@@ -1,3 +1,4 @@
-<div class="w-full m-16 text-center">
-    <span class="loading loading-spinner loading-lg"></span>
-</div>
+<script lang="ts">
+    import { Spinner } from "flowbite-svelte";
+</script>
+<div class="text-center mt-8"><Spinner /></div>
