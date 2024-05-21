@@ -4,6 +4,7 @@ import {
     varchar,
     timestamp,
     serial,
+    text,
     json,
     mysqlEnum,
     index,
