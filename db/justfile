@@ -1,0 +1,2 @@
+start-surreal:
+    surreal start -u root -p jour file:surreal/dev.db
