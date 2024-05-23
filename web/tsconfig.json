@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@surreal/*": [
+        "surreal/*"
+      ],
       "@convex/*": [
         "convex/*"
       ],

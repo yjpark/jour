@@ -21,8 +21,8 @@ let $e4 = fn::create_entry($user.id, "list", "# LIST", NONE, [$e1.id, $e2.id, $e
 $e4.id;
 
 -- relate_publish not working yet, the passed in and out got lost
-let $p1 = fn::relate_publish($j1.id, $e1.id, $user.id, "temp");
-$p1.id;
+-- let $p1 = fn::relate_publish($j1.id, $e1.id, $user.id, "temp");
+-- $p1.id;
 
-let $p2 = fn::relate_publish($j2.id, $e4.id, $user.id, "list");
-$p2.id;
+-- let $p2 = fn::relate_publish($j2.id, $e4.id, $user.id, "list");
+-- $p2.id;

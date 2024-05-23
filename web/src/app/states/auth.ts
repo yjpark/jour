@@ -5,7 +5,7 @@ import { type UserId } from "@convex/types";
 import { type GetAuthReturn, queryAuth } from "@app/api";
 
 export const clerkUser = atom<null | clerk.UserResource>(null);
-export const authing = atom(false);
+export const authing = atom(true);
 export const token = atom<null | string>(null);
 
 export const auth = atom<null | GetAuthReturn>(null);

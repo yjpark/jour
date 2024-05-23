@@ -35,6 +35,10 @@
     "micromark-util-types": "^2.0.0",
     "mysql2": "^3.9.7",
     "nanostores": "^0.9.5",
+    "radash": "^12.1.0",
+    "surrealdb.js": "^1.0.0-beta.8",
+    "surrealdb.wasm": "^1.0.0-beta.11",
+    "surrealql.wasm": "^0.1.7",
     "svelte": "^5.0.0-next.123",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"

@@ -1,9 +1,21 @@
+set positional-arguments
+
 list:
     surrealdb-migrations list --password jour --ns jour --db dev
 
 apply:
     surrealdb-migrations apply --password jour --ns jour --db dev
+    # curl -X POST -u "root:jour" -H "NS: jour" -H "DB: dev" -H "Accept: application/json" -d queries/test.surql http://localhost:8000/sql
+
+export:
+    curl -X GET -u "root:jour" -H "NS: jour" -H "DB: dev" -H "Accept: application/json" -o exports/jour_dev-$(date -u +%Y%m%d)_$(date -u +%H%M).surql http://localhost:8000/export
+
+@import surql_path:
+    echo "Import from: $1"
+    curl -X POST -u "root:jour" -H "NS: jour" -H "DB: dev" -H "Accept: application/json" -d $1 http://localhost:8000/import
 
 apply-dry-run:
     surrealdb-migrations apply --password jour --ns jour --db dev --dry-run
 
+generate-ts-types:
+    bunx surreal-ts@latest -u root -p jour -n jour -d dev -c wc://localhost:8000
