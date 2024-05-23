@@ -1,8 +1,6 @@
 <script lang="ts">
     import { client, types } from "@surreal/index";
     import { onMount } from "svelte";
-    import { queryJoinJours } from "@app/api.js";
-    import { joinJours } from "@app/states/jours";
     import JoinJour from "./JoinJour.svelte";
     import Loading from "@app/components/Loading.svelte";
 

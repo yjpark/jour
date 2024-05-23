@@ -95,6 +95,7 @@ export async function connect() {
 			const infoResult = await SURREAL.info();
 			console.log("[surreal] info result", infoResult);
 			states.auth.set(infoResult);
+			states.role.set(states.calcRole());
 
 			states.connecting.set(false);
 			states.connected.set(true);

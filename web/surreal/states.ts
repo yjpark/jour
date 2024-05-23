@@ -21,3 +21,15 @@ export const connectionOptions = atom<ConnectionOptions>(createConnectionOptions
 export const connectionError = atom<any>(null);
 
 export const auth = atom<any>(null);
+export const role = atom<null | string>(null);
+
+export const calcRole = function(): null | string {
+    if (!auth.get()) {
+        return null;
+    }
+    const scope = connectionOptions.get()?.scope;
+    if (scope) {
+        return scope; 
+    }
+    return auth.get()?.role;
+}
