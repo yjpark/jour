@@ -19,7 +19,7 @@
         "src/views/*"
       ],
       "@app/*": [
-        "src/app/*"
+        "app/*"
       ],
       "@md/*": [
         "src/md/*"

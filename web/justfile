@@ -24,4 +24,5 @@ npx-dev:
 npx-convex-dev:
     npx convex dev
 
-
+show-ss-abbr:
+    echo "abbr ss bunx shadcn-svelte@latest"

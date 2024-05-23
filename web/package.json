@@ -23,6 +23,8 @@
     "@nanostores/router": "github:nanostores/router",
     "astro": "^4.7.0",
     "astro-icon": "^1.1.0",
+    "bits-ui": "^0.21.9",
+    "clsx": "^2.1.1",
     "convex": "^1.11.3",
     "convex-svelte": "^0.0.8",
     "crypto": "^1.0.1",
@@ -40,6 +42,8 @@
     "surrealdb.wasm": "^1.0.0-beta.11",
     "surrealql.wasm": "^0.1.7",
     "svelte": "^5.0.0-next.123",
+    "tailwind-merge": "^2.3.0",
+    "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
