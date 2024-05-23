@@ -1,16 +1,15 @@
 <script lang="ts">
-    import { atom } from "nanostores";
     import { router, ROUTES } from "@app/router";
-    import { auth, ensureAuth, authing } from "@app/states/auth";
+    import { connected } from "@surreal/states";
     import Home from "@app/home/Home.svelte";
     import Jours from "@app/jours/Jours.svelte";
     import Jour from "@app/jour/Jour.svelte";
     import Loading from "@app/components/Loading.svelte";
 
-    ensureAuth();
+    $inspect(connected);
 </script>
 
-{#if $auth.data}
+{#if $connected}
     {#if $router?.route === ROUTES.HOME}
         <Home />
     {:else if $router?.route === ROUTES.JOURS}

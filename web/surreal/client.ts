@@ -10,6 +10,8 @@ import {
     decodeCbor,
     VersionRetrievalFailure,
     UnsupportedVersion,
+	type QueryResult,
+	type PreparedQuery,
 } from "surrealdb.js";
 
 import {
@@ -90,6 +92,10 @@ export async function connect() {
 
 			console.log("[surreal] connected to", options.protocol, options.hostname, options.authMode);
 
+			const infoResult = await SURREAL.info();
+			console.log("[surreal] info result", infoResult);
+			states.auth.set(infoResult);
+
 			states.connecting.set(false);
 			states.connected.set(true);
 		})
@@ -126,9 +132,6 @@ export async function connect() {
 			    console.log("[surreal] db version", v ?? "unknown");
 			});
 		});
-	const infoResult = await SURREAL.info();
-	console.log("[surreal] info result", infoResult);
-	states.auth.set(infoResult);
 }
 
 /**
@@ -217,5 +220,47 @@ export async function authenticate(auth: AuthDetails, surreal?: Surreal, options
              */
 		});
 		console.log("[surreal] signin result", signinResult);
+	}
+}
+
+export async function executeQuery<T extends unknown[]>(query: string | PreparedQuery, bindings?: Record<string, unknown>): QueryResponse {
+	if (!states.connected.get()) {
+		throw new Error("Not connected");
+	}
+	try {
+		const responseRaw = await SURREAL.query_raw(query, bindings) || [];
+
+		const result = mapResults(responseRaw);
+		console.info("[surreal] executeQuery result:", query, bindings, result);
+		return result;
+	} catch(err: any) {
+		console.error("[surreal] executeQuery failed:", query, bindings, err);
+		return {
+			success: false,
+			result: err.message,
+			execution_time: "",
+		} as QueryResponse;
+	}
+}
+
+function mapResults(response: QueryResult<unknown>[]): QueryResponse {
+	const result = response.map(res => ({
+		success: res.status == "OK",
+		result: res.result,
+		execution_time: res.time
+	}));
+	if (result.length > 0) {
+		if (result.length > 1) {
+			for (let i = 1; i < result.length; i++) {
+				console.info("[surreal] got extra results:", i, result[i]);
+			}
+		}
+		return result[0] as QueryResponse;
+	} else if (result.length == 0) {
+		return {
+			success: false,
+			result: null,
+			execution_time: "",
+		} as QueryResponse
 	}
 }

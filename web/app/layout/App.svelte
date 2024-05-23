@@ -7,7 +7,7 @@
 	} from 'flowbite-svelte';
     import { sineIn } from "svelte/easing";
 
-    import { authing, token } from "@app/states/auth";
+    import { connected } from "@surreal/states";
     import { sidebarHidden } from "@app/states/page";
     import Loading from "@app/components/Loading.svelte";
     import Navbar from "./Navbar.svelte";
@@ -60,17 +60,10 @@
 <div class="flex px-4 mx-auto w-full">
 	<main class="lg:ml-72 w-full mx-auto justify-center">
         <div class="container mx-auto">
-        {#if $authing}
-            {#if !$token}
-                <div class="w-full mt-4 flex justify-center">
-                    <div id="sign-in">
-                    </div>
-                </div>
-            {:else}
-                <Loading />
-            {/if}
-        {:else}
+        {#if $connected}
             <Page />
+        {:else}
+            <Loading />
         {/if}
         </div>
 	</main>
