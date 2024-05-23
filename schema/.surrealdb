@@ -1,0 +1,43 @@
+[core]
+    # Optional
+    # Type: String
+    # Description: Path to the folder that contains your migration project (root folder by default)
+    # Default: "."
+    path: "."
+
+    # Optional
+    # Type: "less" | "full"
+    # Description: Define SCHEMALESS or SCHEMAFULL option by default when creating new table/event file
+    # Default: "less"
+    schema: "full"
+
+[db]
+    # Optional
+    # Type: String
+    # Description: Address of the surrealdb instance
+    # Default: "ws://localhost:8000"
+    address: "ws://localhost:8000"
+
+    # Optional
+    # Type: String
+    # Description: Username used to authenticate to the surrealdb instance
+    # Default: "root"
+    username: "root"
+
+    # Optional
+    # Type: String
+    # Description: Password used to authenticate to the surrealdb instance
+    # Default: "root"
+    password: "pass"
+
+    # Optional
+    # Type: String
+    # Description: Namespace to use inside the surrealdb instance
+    # Default: "test"
+    ns: "jour"
+
+    # Optional
+    # Type: String
+    # Description: Name of the database to use inside the surrealdb instance
+    # Default: "test"
+    db: "dev"

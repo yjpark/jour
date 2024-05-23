@@ -1,8 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/0.10.1/.schema/devbox.schema.json",
   "packages": [
-    "sqlite",
-    "litecli",
+    "surrealdb@latest",
+    "surrealdb-migrations@latest",
+    "dolt@latest",
+    "mycli@latest",
     "bun@latest",
     "nodejs@latest"
   ],

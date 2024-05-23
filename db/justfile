@@ -1,0 +1,8 @@
+sql:
+    surreal sql -u root -p jour
+
+start-surreal:
+    surreal start --auth -u root -p jour
+
+start-surreal-file:
+    surreal start --auth -u root -p jour file:surreal/dev.db
