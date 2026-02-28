@@ -1,0 +1,7 @@
+{
+  "name": "jour",
+  "version": "0.1.0",
+  "description": "Daily workflow manager: quick notes, journal, tasks, and auto-organization for an Obsidian-compatible markdown vault",
+  "author": { "name": "yjpark" },
+  "keywords": ["journal", "notes", "tasks", "obsidian", "markdown", "daily"]
+}
